@@ -1,6 +1,8 @@
 # Manager feedback coach
 
-A private, local prototype for practising one difficult conversation: repeated lateness. Review the selected context, prepare with Situation–Behaviour–Impact, rehearse as a spoken conversation with a simulated Rohit, then leave with a readiness call and words to use tomorrow.
+**[Open the live Streamlit demo](https://amulya-manager-feedback-coach.streamlit.app/)** · [Hosting guide](docs/HOSTING.md)
+
+A prototype for practising one difficult conversation: repeated lateness, available locally and as a hosted Streamlit demo. Review the selected context, prepare with Situation–Behaviour–Impact, rehearse as a spoken conversation with a simulated Rohit, then leave with a readiness call and words to use tomorrow.
 
 The supplied employee record is synthetic. **Rohit's responses are simulated possibilities, not predictions or evidence about a person.** The application is coaching practice, not legal advice or an employment decision system.
 

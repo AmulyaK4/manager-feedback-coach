@@ -52,7 +52,7 @@ Complete all account, GitHub, and Cloud actions in the user's **Amulya Chrome pr
 | Dependency file | Root `requirements.txt`, pinned `streamlit==1.67.0` |
 | Secrets | Private TOML fields shown above |
 | Python version | Select 3.13; local validation used Python 3.13.7 |
-| Live URL | Pending successful deployment |
+| Live URL | https://amulya-manager-feedback-coach.streamlit.app/ |
 
 After setting secrets, deploy or reboot the app as required by the Cloud interface. Do not claim success from a completed upload alone: inspect the app's actual HTTPS page and complete the checks below. No paid plan or billing change is part of these instructions.
 
@@ -84,7 +84,9 @@ The adapter admits **60 provider-backed requests per rolling hour and 2 concurre
 
 ## Verification before sharing
 
-Local validation on 16 November 2026 used Python 3.13.7 and Streamlit 1.67.0. The complete Python suite passed 41 tests, the existing frontend lifecycle harness passed, and the new bridge harness passed 38 checks. Streamlit AppTest reported no exceptions and one registered component. A scripted Prepare request returned HTTP-style status 200 through the real Streamlit entrypoint; a subsequent rerun reused the cached response without another dispatch. The local Streamlit page and health endpoint both returned HTTP 200. The public deployment and real browser voice checks remain pending.
+Local validation on 16 November 2026 used Python 3.13.7 and Streamlit 1.67.0. The complete Python suite passed 41 tests, the existing frontend lifecycle harness passed, and the new bridge harness passed 38 checks. Streamlit AppTest reported no exceptions and one registered component. A scripted Prepare request returned HTTP-style status 200 through the real Streamlit entrypoint; a subsequent rerun reused the cached response without another dispatch. The local Streamlit page and health endpoint both returned HTTP 200.
+
+The app was deployed on 16 November 2026 through the Amulya Chrome profile, with Streamlit linked to AmulyaK4. The hosted Context screen loaded the curated scenario and the Gemini engine/model label. The private Gemini settings were saved through Streamlit's secret editor without emitting the key. The anonymous hosted backend health endpoint, component HTML, and JavaScript assets returned HTTP 200; comparison with the local key found no key value in those responses. Chrome reported audio playback for the mode announcement. A complete spoken rehearsal, physical microphone capture, and human-confirmed audibility remain separate manual checks.
 
 On the actual hosted HTTPS page, verify:
 

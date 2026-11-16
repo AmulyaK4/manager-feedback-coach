@@ -25,6 +25,6 @@
 - [x] Add a Streamlit entrypoint, pin Streamlit, and ignore `.streamlit/secrets.toml`.
 - [x] Replace localhost-only browser guidance with wording that also applies to the HTTPS hosted app; retain local instructions in the README.
 - [x] Run existing and adapter-focused tests, then start Streamlit locally and verify its page, health endpoint, and entrypoint request/rerun behavior. A real browser microphone/audio check remains separate.
-- [ ] Show the new commit file list, rescan staged content for secrets, commit, and publish to the verified AmulyaK4 repository.
-- [ ] Configure and deploy Community Cloud through the Amulya Chrome profile after the user completes account steps.
-- [ ] Configure the approved Gemini secret privately, verify deployment and report the actual live URL and test limits.
+- [x] Show the new commit file list, rescan staged content for secrets, commit, and publish to the verified AmulyaK4 repository.
+- [x] Configure and deploy Community Cloud through the Amulya Chrome profile after the user completes account steps.
+- [x] Configure the approved Gemini secret privately and verify the hosted Context, model label, backend health and assets. Live URL: https://amulya-manager-feedback-coach.streamlit.app/ . Full own-voice rehearsal and human audibility remain manual checks.

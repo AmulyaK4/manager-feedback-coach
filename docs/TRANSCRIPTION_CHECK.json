@@ -1,0 +1,10 @@
+{
+  "input": "Synthetic TTS audio only, not a human microphone recording",
+  "expected_words": "Hello Amulya. I am ready to talk. What would you like to discuss?",
+  "result": {
+    "text": "Hello Amulya, I am ready to talk. What would you like to discuss?",
+    "engine": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "roundtrip_s": 2.93
+}

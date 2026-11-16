@@ -1,0 +1,15 @@
+{
+  "clean_source_copy": "PASS",
+  "checks": [
+    "clean source starts with no key or dependencies",
+    "HTML, JavaScript and CSS served",
+    "secret and source paths not served",
+    "scripted Prepare HTTP roundtrip works",
+    "empty message and injected role rejected with HTTP400",
+    "empty rehearsal produces insufficient-evidence debrief",
+    "Python unit suite passes in clean source copy"
+  ],
+  "secrets_copied": false,
+  "third_party_dependencies": 0,
+  "voice_tested": false
+}

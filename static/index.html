@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clear conversation · Manager feedback coach</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="/" aria-label="Feedback coach home"><span class="brand-mark">c.</span><span>Clear conversation<small>MANAGER FEEDBACK COACH · PRACTISING AS AMULYA</small></span></a>
+    <label class="engine-choice" for="engine-select">Session engine<select id="engine-select" disabled><option value="auto">Live Gemini (configured)</option><option value="scripted">Scripted replies — no coaching model</option></select><small>Manual fallback; keeps your transcript.</small></label>
+    <div class="header-badges"><span class="badge simulation">SIMULATED EMPLOYEE</span><span class="badge" id="engine-badge">Loading engine…</span></div>
+  </header>
+  <main class="app-shell">
+    <nav class="mode-nav" aria-label="Conversation stages">
+      <button type="button" data-mode="context" class="active" aria-current="step"><span>01</span> Context</button>
+      <button type="button" data-mode="prepare" disabled><span>02</span> Prepare</button>
+      <button type="button" data-mode="rehearse" disabled><span>03</span> Rehearse</button>
+      <button type="button" data-mode="debrief" disabled><span>04</span> Debrief</button>
+    </nav>
+    <div class="standing-note"><span class="status-dot"></span><span>This is practice with a simulated employee. Responses are possibilities, never a prediction of what Rohit will say.</span></div>
+    <div id="global-status" class="notice" role="status" aria-live="polite" hidden></div>
+
+    <section id="context-view" class="view" aria-labelledby="context-heading">
+      <div class="page-intro"><p class="eyebrow">BEFORE YOU BEGIN</p><h1 id="context-heading">A clear conversation starts<br>with the facts.</h1><p>Practise a conversation about repeated lateness. Start with what you know, listen for what you don’t, and agree a change together.</p></div>
+      <div class="context-grid">
+        <article class="card employee-card"><div class="card-heading"><span class="eyebrow">YOUR PRACTICE SCENARIO</span><span class="badge subtle">Synthetic data</span></div><h2 id="employee-name">Loading employee…</h2><p id="employee-role" class="muted"></p><dl id="employee-facts" class="facts"></dl><div id="attendance-note" class="inset"></div></article>
+        <article class="card"><p class="eyebrow">WHAT THE COACH USES</p><h2>Attendance, with care.</h2><p>Only the facts shown here are supplied to the coach. Focus on observable behaviour; invite an explanation without diagnosing its cause.</p><h3>Excluded from coaching</h3><ul id="exclusions" class="plain-list"></ul><h3>What we don’t assume</h3><ul id="assumptions" class="plain-list"></ul></article>
+      </div>
+      <article class="card framework-card"><div><p class="eyebrow">THE CONVERSATION FRAMEWORK</p><h2 id="framework-name">Situation · Behaviour · Impact</h2></div><ol id="framework-steps" class="framework-steps"></ol></article>
+      <div class="start-row"><button id="start-prepare" class="primary" disabled>Prepare my opening <span aria-hidden="true">→</span></button><button id="start-rehearse" class="text-button" disabled>Go straight to spoken rehearsal</button></div>
+    </section>
+
+    <section id="prepare-view" class="view" aria-labelledby="prepare-heading" hidden>
+      <div class="page-intro compact"><p class="eyebrow">MODE · PREPARE</p><h1 id="prepare-heading">Find the words you can say.</h1><p>The coach helps you use the framework. Describe the situation, draft your opening, or ask how to keep it fair and specific.</p></div>
+      <div class="work-grid"><article class="card conversation-card"><div class="card-heading"><h2>Work with your coach</h2><span class="speaker-tag coach">Coach</span></div><div id="prepare-transcript" class="transcript" aria-label="Preparation conversation"></div><form id="prepare-form" class="composer"><label for="prepare-input">Your draft or question</label><textarea id="prepare-input" rows="3" maxlength="4000" placeholder="Help me open a conversation about the repeated late arrivals…" required></textarea><button id="prepare-send" class="primary" type="submit">Ask the coach</button></form></article><aside class="card framework-aside"><p class="eyebrow">KEEP IT GROUNDED</p><h2>Facts first. Then listen.</h2><ol id="prepare-framework" class="guide-list"></ol><button id="prepare-to-rehearse" class="secondary">Practise out loud →</button></aside></div>
+    </section>
+
+    <section id="rehearse-view" class="view" aria-labelledby="rehearse-heading" hidden>
+      <div class="page-intro compact"><p class="eyebrow">MODE · REHEARSE WITH SIMULATED ROHIT</p><h1 id="rehearse-heading">Say it out loud.</h1><p>Speak as the manager. Rohit may push back before you find a workable agreement. You can interrupt at any time.</p></div>
+      <div class="work-grid"><article class="card conversation-card"><div class="card-heading"><h2>Rehearsal transcript</h2><span class="speaker-tag employee">Simulated Rohit</span></div><div id="rehearse-transcript" class="transcript rehearsal" aria-label="Rehearsal conversation"></div><div class="voice-console"><div class="voice-state"><span id="voice-indicator" class="voice-indicator"></span><strong id="voice-status" aria-live="polite">Ready when you are</strong></div><p id="live-transcript" class="live-transcript" aria-live="polite">Your words will appear here while you speak.</p><div class="voice-actions"><button id="speak-button" class="primary">Speak / interrupt Rohit</button><button id="stop-send" class="secondary" disabled>Stop &amp; send</button></div><p class="microcopy">Click Speak to begin. Click Stop &amp; send when finished. Speak again to cut off playback. Only your own voice; use a headset.</p></div><details class="typed-aid"><summary>Typed troubleshooting aid — does not verify voice</summary><form id="typed-form" class="composer"><label for="typed-input">Send a typed rehearsal turn</label><textarea id="typed-input" rows="2" maxlength="4000" placeholder="For testing the conversation when the microphone is unavailable." required></textarea><button id="typed-send" class="secondary" type="submit">Send typed test turn</button></form></details></article><aside class="sidebar-stack"><article class="card"><p class="eyebrow">VOICE SETUP</p><h2>Two roles. Always identified.</h2><p class="small">The coach identifies itself. Rohit’s role is announced when rehearsal begins; his replies then play directly. Voice choices below apply to browser speech fallback.</p><label for="voice-input">Voice input</label><select id="voice-input"><option value="recording">Microphone recording → Gemini</option><option value="browser" selected>Browser speech recognition</option></select><div id="audio-consent-note" hidden><label class="consent-label"><input id="audio-consent" type="checkbox"> Send my practice recording to Google Gemini for transcription; own voice only.</label><p class="microcopy">Audio goes to Google for transcription, separately from the conversation engine. Nothing uploads until you check this box and use Stop &amp; send. Maximum 60 seconds / 3 MB.</p></div><label for="coach-voice">Coach voice</label><select id="coach-voice"></select><label for="employee-voice">Simulated Rohit voice</label><select id="employee-voice"></select><label for="speech-rate">Speaking speed <span id="rate-value">1.0×</span></label><input id="speech-rate" type="range" min="0.7" max="1.3" step="0.1" value="1"><div class="voice-actions"><button id="test-voice" class="secondary">Test Rohit’s voice</button><button id="replay-reply" class="secondary" disabled>Play Rohit’s last reply</button></div><audio id="native-audio" controls preload="auto" hidden></audio><p id="audio-path" class="microcopy"></p><button id="stop-audio" class="text-button">Stop audio</button><p id="browser-support" class="microcopy"></p></article><article class="card latency-card"><p class="eyebrow">TIME TO FIRST SOUND</p><h2 id="latency-latest">No voice samples yet</h2><p id="latency-summary" class="small">Measured from finishing your turn to the reply’s first sound, including final transcription.</p><p id="typed-latency" class="microcopy">Typed diagnostic samples: 0</p><p class="microcopy">Browser timestamps are approximate. A measured sample is not proof of successful microphone testing.</p></article><button id="finish-rehearsal" class="secondary wide">Finish &amp; get my debrief →</button></aside></div>
+    </section>
+
+    <section id="debrief-view" class="view" aria-labelledby="debrief-heading" hidden>
+      <div class="page-intro compact"><p class="eyebrow">MODE · DEBRIEF WITH YOUR COACH</p><h1 id="debrief-heading">Take the next conversation with you.</h1><p>The roleplay has ended. This is coaching based on your rehearsal, with practical words to try next.</p></div>
+      <div id="debrief-loading" class="card"><h2>Reviewing your conversation…</h2><p>Looking for specific moments and a useful next step.</p></div><div id="debrief-content" hidden></div>
+      <div class="export-row"><button id="print-takeaway" class="primary" disabled>Print / save takeaway</button><button id="download-session" class="secondary">Download transcript + latency JSON</button><button id="try-again" class="text-button">Continue practising →</button></div>
+      <details class="card debrief-transcript"><summary>Review the rehearsal transcript</summary><div id="debrief-transcript" class="transcript"></div></details>
+    </section>
+    <footer class="app-footer"><p>Local prototype · Chrome desktop on localhost · Browser speech recognition may use online processing. Model integration, when configured, also sends the curated conversation to its provider.</p><p>Session history stays in this browser’s memory until reload. Nothing is a real employee prediction or an HR determination. Voice functionality must be tested with your own voice.</p></footer>
+  </main>
+</body>
+</html>

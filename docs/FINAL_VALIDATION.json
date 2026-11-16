@@ -1,0 +1,40 @@
+{
+  "final_validator_accepts_prior_model_debrief": false,
+  "reason": "No employee agreement was reached. A manager proposal alone cannot support ready. Final code now rejects this false-ready output.",
+  "grounded_local_debrief": {
+    "readiness": {
+      "level": "practice",
+      "text": "Rehearse once more before the real conversation."
+    },
+    "moments": [
+      {
+        "kind": "worked",
+        "quote": "Rohit, in the 90-day period covered by this record, there were 14 arrivals after 09:30. In this rehearsal, the impact I observed was having to cover the morning handover. I'd like to understand your perspective before we agree what to change.",
+        "explanation": "You used specific attendance facts or invited his perspective, giving the conversation a concrete starting point."
+      },
+      {
+        "kind": "improve",
+        "quote": "Thanks, I hear that you want your work to be recognised. The concern is reliable morning handover cover, not a judgement of your effort. What would help you meet the 09:30 start or flag a difficulty beforehand?",
+        "explanation": "Check this turn for an observed impact and an agreed follow-up. The scripted coach cannot verify either from keywords; make both explicit and ask whether the plan is workable."
+      }
+    ],
+    "opening": "Rohit, the attendance record shows 14 arrivals after the scheduled 09:30 start over the recorded 90-day period, and I'd like to understand what's been happening.",
+    "objections": [
+      {
+        "objection": "Look, I know Mondays and Tuesdays have been tough lately with the commute, but I've been making up the time every single evening. If covering the morning handover is the main issue, can we look at shifting my start time slightly instead of just focusing on the clock?",
+        "response": "Let's agree a realistic expectation, how to flag a difficulty beforehand, and a time to review it together."
+      },
+      {
+        "objection": "I get that the morning handover is critical, but shifting my start time by even twenty minutes would solve this without me having to rush an impossible commute. Can we consider a flexible start window?",
+        "response": "You're right, I need to hear your perspective before we agree a change."
+      }
+    ],
+    "next_steps": [
+      "Verify the dates behind the attendance record and identify one impact you personally observed.",
+      "Ask for Rohit's perspective, then agree a realistic change and when to check it."
+    ],
+    "limitations": [
+      "This is rule-based coaching on a synthetic rehearsal, not an HR decision. The record supplies no verified impact or reference date."
+    ]
+  }
+}

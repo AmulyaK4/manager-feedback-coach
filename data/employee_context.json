@@ -1,0 +1,13 @@
+{
+  "name": "Rohit Menon",
+  "role": "Senior Analyst, Client Servicing",
+  "tenure_months": 34,
+  "manager_name": "Aditi Rao",
+  "attendance": {
+    "scheduled_start": "09:30",
+    "late_arrivals_last_90_days": 14,
+    "average_lateness_minutes": 38,
+    "pattern_note": "Predominantly Mondays and Tuesdays",
+    "prior_conversation_logged": "2026-06-02, verbal, logged by manager, no written follow-up"
+  }
+}

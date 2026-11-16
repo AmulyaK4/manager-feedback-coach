@@ -1,0 +1,12 @@
+{
+  "name": "Situation – Behaviour – Impact",
+  "steps": [
+    {"name": "Situation", "guidance": "Name the specific setting and period. The supplied 90-day period has no reference date: acknowledge this and verify the dates before the real meeting."},
+    {"name": "Behaviour", "guidance": "Describe observable actions: 14 arrivals after the scheduled 09:30 start, averaging 38 minutes late. Avoid personality labels."},
+    {"name": "Impact", "guidance": "Describe an effect you actually observed. No team or client impact is supplied; ask the manager for one and never invent it."},
+    {"name": "Listen", "guidance": "Ask an open question, hear the explanation and check understanding without assuming a cause."},
+    {"name": "Agree a change", "guidance": "Discuss a specific, achievable expectation and support together. Do not assume an exception or policy."},
+    {"name": "Agree a check", "guidance": "Agree when and how to review progress. Record factual observations and the employee's response fairly."}
+  ],
+  "boundaries": ["Protect confidential peer and HR information.", "Do not diagnose health conditions or treat medical leave as misconduct.", "Do not help engineer a predetermined dismissal; encourage a fair conversation and an appropriate HR discussion for formal processes."]
+}

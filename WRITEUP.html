@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manager feedback coach — design note</title>
+<style>
+@page { size: A4; margin: 18mm 19mm; }
+* { box-sizing: border-box; }
+body { margin: 0; color: #17212b; font: 11pt/1.42 Georgia, "Times New Roman", serif; }
+h1 { font: 700 21pt/1.15 Arial, sans-serif; margin: 0 0 5mm; letter-spacing: -.4pt; }
+.kicker { font: 700 8pt/1.2 Arial, sans-serif; letter-spacing: 1.1pt; text-transform: uppercase; color: #546575; margin-bottom: 3mm; }
+p { margin: 0 0 3.4mm; orphans: 3; widows: 3; }
+code { font: 9.4pt/1.4 Consolas, monospace; overflow-wrap: anywhere; }
+.page { break-after: page; page-break-after: always; }
+.page:last-child { break-after: auto; page-break-after: auto; }
+footer { border-top: .3mm solid #ccd4dc; padding-top: 2.4mm; margin-top: 5mm; font: 8pt/1.2 Arial, sans-serif; color: #546575; display: flex; justify-content: space-between; }
+@media screen { body { background: #e7ecf0; padding: 12mm; } .page { background: white; max-width: 210mm; min-height: 297mm; margin: 0 auto 12mm; padding: 18mm 19mm; box-shadow: 0 2mm 8mm #0002; } }
+@media print { body { background: white; } .page { width: auto; min-height: 0; padding: 0; margin: 0; } }
+</style>
+</head>
+<body>
+<section class="page">
+<div class="kicker">Take-home prototype · Design decisions</div>
+<h1>Manager feedback coach</h1>
+<p>The prototype helps a manager rehearse one attendance conversation and leave with words they can use. I prioritised selected context, spoken rehearsal, explicit interruption, and an actionable debrief. Readiness is rehearsal guidance, not a performance score, employment recommendation, or legal advice. The practice manager is Aditi Rao, matching the original synthetic record.</p>
+<p>I allowlist Rohit&#x27;s name, role, tenure, manager, and attendance facts. Confidential 360 comments and themes, HR notes, compensation, ratings, and unrelated goals are absent from runtime context and prompts. Possessing the source record does not establish entitlement to every field. Confidential information should not become an employee objection just because it makes the simulation more interesting.</p>
+<p>The record&#x27;s “last 90 days” has no reference date, individual incident dates are absent, and no business impact is established. I preserve the total and average without inventing dates or linking lateness to missed targets. The manager must confirm the period, examples, and impact before the real conversation. Health information does not establish a cause. Requests to blame health, use personality labels, reveal peer feedback, or engineer dismissal are redirected toward observable conduct, listening, and appropriate HR support.</p>
+<p>I used Python&#x27;s standard library HTTP server and browser JavaScript to avoid dependency installation. The editable JSON framework holds Situation–Behaviour–Impact, listening, agreement, and review. Wording can change without a code release if its structure is preserved. Gemini&#x27;s generateContent REST API uses <code>gemini-3.5-flash-lite</code> for short text turns; the key stays on the backend. A live request succeeded after the original model check returned HTTP 404. Rehearsal provider failures can produce a labelled scripted reply with a visible error. Scripted results are not model evaluation.</p>
+<p>Browser recognition failed on the tested service path, so preferred input now uses MediaRecorder. An explicit checkbox requests consent to send the candidate&#x27;s own practice audio to Google. Stop &amp; send posts at most 60 seconds and 3 MB to Python for Gemini verbatim transcription. That request contains no employee context; recordings stay in memory, with no backend audio history. Browser recognition remains an alternative and may use its vendor cloud. Scripted coaching still uses Gemini transcription when recorded input is selected. On this Mac, local <code>say</code> generates WAV output: male Rishi for Rohit, female Samantha for the coach. Other hosts retain browser synthesis. Different voices, mode announcements, and standing simulation labels distinguish roles without a repeated employee prefix. This is not native Gemini voice.</p>
+<footer><span>Design note · Synthetic scenario · Private submission</span><span>1 / 2</span></footer>
+</section>
+<section class="page">
+<div class="kicker">Design note · Continued</div>
+<p>The manager controls turn endings and can cancel employee playback with the interrupt control; spontaneous speech alone does not trigger interruption. Late responses are discarded. Reliable boundary events can preserve a heard prefix; otherwise the transcript marks uncertainty rather than claiming unspoken words were heard. Plausible employee reservations should respond to what the manager says, with earned agreement rather than a fixed minimum turn count. Invented circumstances remain rehearsal hypotheses, never record facts.</p>
+<p>Debrief leads with readiness, actual manager quotes, a sayable opening, and responses to concerns raised in rehearsal. Sparse sessions omit unsupported items. A model once recommended readiness without agreement; an explicit guard now rejects that result. Exports keep the takeaway on the manager&#x27;s device. Session state lives in browser memory, with no history database, and the server binds to localhost.</p>
+<p>The weakest points are provider reliability and physical voice verification. The speech endpoint generated a valid Rishi WAV, and the transcription endpoint recognised synthetic Rishi audio in 2.93 seconds. Neither proves a complete human spoken rehearsal. Own-voice P5/P6 and spoken latency remain pending. Time to first sound uses approximate browser events, not acoustic measurement; typed HTTP timings are separate. The probe report preserves failures and distinguishes scripted, live-model, synthetic-audio, and physical evidence.</p>
+<p>I cut accounts, integrations, additional scenarios, automatic barge-in, streaming, and deployment. Next I would prove the full spoken loop on the interview setup, then broaden employee-realism and grounded-debrief evaluation. Company use would need approved providers, explicit retention controls, accessibility work, HR ownership, and review of lawful workplace use before real employee data. Codex helped with planning, implementation, boundary review, checks, and documentation; generated work still requires executed evidence.</p>
+<footer><span>Manager feedback coach</span><span>2 / 2</span></footer>
+</section>
+</body>
+</html>

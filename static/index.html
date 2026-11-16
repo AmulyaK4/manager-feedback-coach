@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Clear conversation · Manager feedback coach</title>
-  <link rel="stylesheet" href="/static/style.css">
-  <script src="/static/app.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./streamlit-bridge.js" defer></script>
+  <script src="./app.js" defer></script>
 </head>
 <body>
   <header class="app-header">
-    <a class="brand" href="/" aria-label="Feedback coach home"><span class="brand-mark">c.</span><span>Clear conversation<small>MANAGER FEEDBACK COACH · PRACTISING AS AMULYA</small></span></a>
+    <a class="brand" href="" aria-label="Feedback coach home"><span class="brand-mark">c.</span><span>Clear conversation<small>MANAGER FEEDBACK COACH · PRACTISING AS AMULYA</small></span></a>
     <label class="engine-choice" for="engine-select">Session engine<select id="engine-select" disabled><option value="auto">Live Gemini (configured)</option><option value="scripted">Scripted replies — no coaching model</option></select><small>Manual fallback; keeps your transcript.</small></label>
     <div class="header-badges"><span class="badge simulation">SIMULATED EMPLOYEE</span><span class="badge" id="engine-badge">Loading engine…</span></div>
   </header>
@@ -49,7 +50,7 @@
       <div class="export-row"><button id="print-takeaway" class="primary" disabled>Print / save takeaway</button><button id="download-session" class="secondary">Download transcript + latency JSON</button><button id="try-again" class="text-button">Continue practising →</button></div>
       <details class="card debrief-transcript"><summary>Review the rehearsal transcript</summary><div id="debrief-transcript" class="transcript"></div></details>
     </section>
-    <footer class="app-footer"><p>Local prototype · Chrome desktop on localhost · Browser speech recognition may use online processing. Model integration, when configured, also sends the curated conversation to its provider.</p><p>Session history stays in this browser’s memory until reload. Nothing is a real employee prediction or an HR determination. Voice functionality must be tested with your own voice.</p></footer>
+    <footer class="app-footer"><p>Practice prototype · Desktop Chrome · HTTPS or localhost · Browser speech recognition may use online processing. Model integration, when configured, also sends the curated conversation to its provider.</p><p>Session history stays in this browser’s memory until reload. Nothing is a real employee prediction or an HR determination. Voice functionality must be tested with your own voice.</p></footer>
   </main>
 </body>
 </html>

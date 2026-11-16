@@ -82,3 +82,18 @@ Executed audio checks include the earlier 8.9-second WAV and the current Rishi v
 ## Recorded-input verification
 
 The actual `/api/transcribe` endpoint transcribed generated synthetic Rishi audio as “Hello Amulya, I am ready to talk. What would you like to discuss?” in **2.93 seconds**. Evidence: [docs/TRANSCRIPTION_CHECK.json](docs/TRANSCRIPTION_CHECK.json). This is a synthetic-audio endpoint check, **not a human microphone test**. Browser recognition currently fails on the tested Chrome/in-app service path; the new recorded-input path still needs the candidate's own voice and complete P5/P6 checks. Audio consent is required before recording and sending practice audio to Google.
+
+## Streamlit Community Cloud deployment
+
+The later user request adds a public portfolio deployment through **AmulyaK4/manager-feedback-coach**, branch **main**, entrypoint **streamlit_app.py**. This request authorizes the public repository and hosted app for this deployment, superseding the earlier assessment's private/local-only delivery instructions. The existing local command, `python3 app.py --port 8765`, remains available.
+
+The hosting adapter reuses the browser interface and coaching logic inside a Streamlit custom component. For the hosted path, install the pinned `streamlit==1.67.0` dependency from `requirements.txt`, then run:
+
+```sh
+python3 -m pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+
+Set `GEMINI_API_KEY` and `GEMINI_MODEL` in the app's private **Streamlit Cloud secrets**, never in GitHub or browser code. Local Streamlit secrets belong in ignored `.streamlit/secrets.toml`. Community Cloud uses browser speech synthesis because Linux cannot run the Mac's Rishi/Samantha `say` voices. Microphone input requires HTTPS (or localhost for development), browser permission, and explicit consent before audio is sent to Google. Scripted coaching still calls Gemini when recorded transcription is selected.
+
+See [docs/HOSTING.md](docs/HOSTING.md) for the exact deployment fields, placeholder-only TOML, rerun behavior, and limits. **Hosted checks, validated Cloud Python version, and live URL are pending confirmation.** Earlier local verification results above do not establish a successful cloud deployment. All account actions for this deployment must use the user's **Amulya Chrome profile**.

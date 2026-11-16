@@ -12,7 +12,7 @@
     audioRequest: null, audioGeneration: 0, audioURL: null
   };
   const voiceError = {
-    "not-allowed": "Microphone access was denied. Allow microphone access for localhost in Chrome, then try again.",
+    "not-allowed": "Microphone access was denied. Allow microphone access for this site in Chrome, then try again.",
     "service-not-allowed": "The browser blocked speech recognition. Check Chrome microphone and speech service settings.",
     "audio-capture": "No microphone is available. Connect a microphone and check Chrome’s input device.",
     network: "Browser speech recognition could not reach its service. Switch Voice input to Microphone recording → Gemini, then review the separate audio consent checkbox. Browser recognition may not work in the in-app browser.",
@@ -292,7 +292,7 @@
     if (state.context?.speech_available) { speakNative(text, role, entry, timing); return; }
     if (!synth || !window.SpeechSynthesisUtterance) {
       if (entry) entry.source = "text only · speech unavailable";
-      notify("Speech playback is unavailable in this browser. Use Chrome desktop on localhost for spoken rehearsal.", true);
+      notify("Speech playback is unavailable in this browser. Use desktop Chrome on this HTTPS site or localhost for spoken rehearsal.", true);
       return;
     }
     cancelPlayback();
@@ -414,7 +414,7 @@
     // User gesture immediately stops playback before opening the mic or aborting fetch.
     cancelPlayback();
     abortRequest();
-    if (!Recognition || (!synth && !state.context?.speech_available)) { notify("Spoken rehearsal needs Chrome desktop with speech recognition and audio output. The typed aid is only a troubleshooting path.", true); return; }
+    if (!Recognition || (!synth && !state.context?.speech_available)) { notify("Spoken rehearsal needs desktop Chrome with speech recognition and audio output. The typed aid is only a troubleshooting path.", true); return; }
     notify();
     const api = new Recognition();
     api.lang = "en-US";
@@ -440,7 +440,7 @@
     api.onerror = (event) => {
       if (state.recognition !== session || session.cancelled) return;
       session.error = event.error || "unknown";
-      notify(voiceError[session.error] || `Speech recognition failed (${session.error}). Try Chrome desktop on localhost. No error text was sent as a manager turn.`, true);
+      notify(voiceError[session.error] || `Speech recognition failed (${session.error}). Try desktop Chrome on this HTTPS site or localhost. No error text was sent as a manager turn.`, true);
     };
     api.onend = () => finishRecognition(session);
     try { api.start(); updateControls(); }
@@ -725,12 +725,12 @@
   });
   window.addEventListener("beforeunload", () => { if (synth) synth.cancel(); cancelRecognition(); });
   if (synth) { populateVoices(); synth.addEventListener("voiceschanged", populateVoices); }
-  $("browser-support").textContent = Recognition && synth ? "Speech APIs detected. Use Chrome desktop on localhost. Recognition may use an online browser service. Test your microphone with your own voice." : "Voice is unsupported here. Open localhost in Chrome desktop and allow microphone access. Typed troubleshooting is available, but does not satisfy spoken rehearsal.";
-  if (!Recognition || !synth) notify("This browser does not support the complete voice loop. Use Chrome desktop on localhost for spoken rehearsal; typed testing does not verify voice.");
+  $("browser-support").textContent = Recognition && synth ? "Speech APIs detected. Use desktop Chrome on HTTPS or localhost. Recognition may use an online browser service. Test your microphone with your own voice." : "Some speech APIs are unavailable here. Use desktop Chrome on this HTTPS site or localhost and allow microphone access. Check whether Microphone recording → Gemini is available; typed troubleshooting does not verify voice.";
+  if (!Recognition || !synth) notify("Some speech APIs are unavailable in this browser. Use desktop Chrome on this HTTPS site or localhost, or check the separate Gemini recording input. Typed testing does not verify voice.");
   renderAllTranscripts();
   updateControls();
   fetch("/api/context").then(async (response) => {
     if (!response.ok) throw new Error(`Context request failed (${response.status}).`);
     return response.json();
-  }).then((data) => { state.context = data; renderContext(data); if (data.engine === "scripted") $("engine-select").options[0].textContent = "Configured default — scripted"; updateControls(); }).catch((error) => { $("employee-name").textContent = "Context unavailable"; $("engine-badge").textContent = "ENGINE UNAVAILABLE"; notify(`${error.message} Check that the local Python server is running, then reload.`, true); });
+  }).then((data) => { state.context = data; renderContext(data); if (data.engine === "scripted") $("engine-select").options[0].textContent = "Configured default — scripted"; updateControls(); }).catch((error) => { $("employee-name").textContent = "Context unavailable"; $("engine-badge").textContent = "ENGINE UNAVAILABLE"; notify(`${error.message} Reload the app when its hosted service or local Python server is available.`, true); });
 })();

@@ -8,3 +8,4 @@ __pycache__/
 venv/
 .superpowers/
 *.zip
+.streamlit/secrets.toml
